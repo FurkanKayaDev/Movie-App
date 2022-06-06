@@ -14,9 +14,10 @@ import {IMAGE_POSTER_URL} from '../../config';
 import Icon from 'react-native-vector-icons/Entypo';
 import Constants from '../../Constants';
 import TrendingMovies from '../../components/TrendingMovies';
+import TrendingPeople from '../../components/TrendingPeople';
 
-const Details = ({route}, props) => {
-  const {movieId} = route.params;
+const Details = props => {
+  const {movieId} = props.route.params;
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState({});
 
@@ -92,10 +93,18 @@ const Details = ({route}, props) => {
             }}>
             {getGenres()}
           </View>
+
+          <TrendingPeople
+            title="CAST"
+            url={`/movie/${movieId}/credits`}
+            isForPage="details"
+          />
+
           <TrendingMovies
             title="SIMILAR MOVIES"
             navigation={props.navigation}
             url={`/movie/${movieId}/similar`}
+            isForPage="details"
           />
         </View>
       )}

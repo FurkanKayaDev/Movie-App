@@ -5,14 +5,16 @@ import {GET} from '../../Services/API';
 import {IMAGE_POSTER_URL} from '../../config';
 import styles from './TrendingPeoples.styles';
 
-const TrendingPeople = () => {
+const TrendingPeople = props => {
   const [loading, setLoading] = useState(true);
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
     const getPeople = async () => {
-      const response = await GET('/trending/person/week');
-      setPeople(response.results);
+      const response = await GET(props.url);
+      setPeople(
+        props.isForPage === 'details' ? response.cast : response.results,
+      );
       setLoading(false);
     };
     getPeople();
@@ -36,7 +38,7 @@ const TrendingPeople = () => {
         <Text>Loading...</Text>
       ) : (
         <View>
-          <Text style={styles.heading}>Trending People</Text>
+          <Text style={styles.heading}>{props.title}</Text>
           <FlatList
             keyExtractor={item => item.id}
             data={people}

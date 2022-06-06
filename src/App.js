@@ -37,14 +37,6 @@ const headerStyle = {
       color={Constants.textColor}
     />
   ),
-  headerRight: () => (
-    <Icon
-      style={{marginRight: 10}}
-      name="search"
-      size={25}
-      color={Constants.textColor}
-    />
-  ),
 };
 
 export default App;
