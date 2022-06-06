@@ -5,12 +5,16 @@ import styles from './Home.styles';
 import TrendingPeople from '../../components/TrendingPeople';
 import TrendingMovies from '../../components/TrendingMovies/';
 
-const Home = () => {
+const Home = props => {
   return (
     <View style={styles.sectionBg}>
-      <DiscoverMovies />
-      <TrendingPeople />
-      <TrendingMovies />
+      <DiscoverMovies navigation={props.navigation} />
+      <TrendingPeople title="Trending People" url="/trending/person/week" />
+      <TrendingMovies
+        title="Trending Movies"
+        url="/movie/top_rated"
+        navigation={props.navigation}
+      />
     </View>
   );
 };

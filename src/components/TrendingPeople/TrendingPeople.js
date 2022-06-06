@@ -20,7 +20,7 @@ const TrendingPeople = () => {
 
   const displayPeople = ({item}) => {
     return (
-      <View style={styles.container}>
+      <View style={{marginHorizontal: 5}}>
         <Image
           style={styles.image}
           source={{uri: `${IMAGE_POSTER_URL}${item.profile_path}`}}

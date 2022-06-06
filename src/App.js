@@ -1,6 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import Home from './screens/Home';
+import Details from './screens/Details';
 import Constants from './Constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {NavigationContainer} from '@react-navigation/native';
@@ -12,6 +13,11 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerTitleAlign: 'center'}}>
         <Stack.Screen name="Home" component={Home} options={headerStyle} />
+        <Stack.Screen
+          name="Details"
+          component={Details}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
