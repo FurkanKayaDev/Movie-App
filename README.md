@@ -6,7 +6,6 @@
 * Redux Toolkit
 * Axios
 * React native vector icons
-* 
 
 ## Özellikler
 
