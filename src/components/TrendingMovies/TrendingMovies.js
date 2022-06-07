@@ -11,6 +11,7 @@ import Constants from '../../Constants';
 import {GET} from '../../Services/API';
 import {IMAGE_POSTER_URL} from '../../config';
 import styles from './TrendingMovies.styles';
+import Loading from '../Loading';
 
 function TrendingMovies(props) {
   const [loading, setLoading] = useState(true);
@@ -44,7 +45,7 @@ function TrendingMovies(props) {
   return (
     <View>
       {loading ? (
-        <Text>Loading...</Text>
+        <Loading />
       ) : (
         <View>
           <Text style={styles.heading}>{props.title}</Text>
